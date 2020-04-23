@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Projects\\CommonDataAccess\\CommonDataAccess\\MTK.DataAccess\\MTK.DataAccess\\MTK.DataAccess.csproj": {}
+  },
+  "projects": {
+    "D:\\Projects\\CommonDataAccess\\CommonDataAccess\\MTK.DataAccess\\MTK.DataAccess\\MTK.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\CommonDataAccess\\CommonDataAccess\\MTK.DataAccess\\MTK.DataAccess\\MTK.DataAccess.csproj",
+        "projectName": "MTK.DataAccess",
+        "projectPath": "D:\\Projects\\CommonDataAccess\\CommonDataAccess\\MTK.DataAccess\\MTK.DataAccess\\MTK.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Franc\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\CommonDataAccess\\CommonDataAccess\\MTK.DataAccess\\MTK.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
