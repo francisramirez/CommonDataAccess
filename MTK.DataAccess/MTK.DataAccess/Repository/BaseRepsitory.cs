@@ -38,32 +38,20 @@ namespace MTK.DataAccess.Repository
         public virtual async Task<IEnumerable<TEntity>> GetWhere(Expression<Func<TEntity, bool>> filter) => await _entities.Where(filter).ToListAsync();
 
 
-        public virtual async Task Remove(TEntity entity)
-        {
-            _entities.Remove(entity);
-            await this.Commit();
-        }
+        public virtual async Task Remove(TEntity entity) => _entities.Remove(entity);
+        
 
         public virtual async Task Remove(object id)
         {
             var obj = await this.GetById(id);
             _entities.Remove(obj);
-            await Commit();
         }
 
 
-        public virtual async Task Remove(params TEntity[] entities)
-        {
-            _entities.RemoveRange(entities);
-            await this.Commit();
-        }
-
-        public virtual async Task Remove(IEnumerable<TEntity> entities)
-        {
-            _entities.RemoveRange(entities);
-            await this.Commit();
-        }
-
+        public virtual async Task Remove(params TEntity[] entities) => _entities.RemoveRange(entities);
+        
+        public virtual async Task Remove(IEnumerable<TEntity> entities) => _entities.RemoveRange(entities);
+        
         public Task<bool> RollBack()
         {
             throw new NotImplementedException();
@@ -72,18 +60,17 @@ namespace MTK.DataAccess.Repository
         public virtual async Task Update(TEntity entity)
         {
             _entities.Update(entity);
-            await this.Commit();
+          
         }
 
         public virtual async Task Update(params TEntity[] entities)
         {
             _entities.UpdateRange(entities);
-            await this.Commit();
+            
         }
         public virtual async Task Update(IEnumerable<TEntity> entities)
         {
             _entities.UpdateRange(entities);
-            await this.Commit();
         }
         public virtual async Task<bool> Commit() => await _context.SaveChangesAsync() > 0;
     }
