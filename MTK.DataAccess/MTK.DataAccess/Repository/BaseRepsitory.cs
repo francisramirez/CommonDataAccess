@@ -1,4 +1,4 @@
-﻿ 
+﻿
 
 namespace MTK.DataAccess.Repository
 {
@@ -20,13 +20,18 @@ namespace MTK.DataAccess.Repository
             this._context = context;
             this._entities = _context.Set<TEntity>();
         }
-        public virtual async Task Add(TEntity entity) => await _entities.AddAsync(entity);
+        public virtual void Add(TEntity entity) => _entities.AddAsync(entity);
+        public virtual void Add(params TEntity[] entities) => _entities.AddRangeAsync(entities);
+        public virtual void Add(IEnumerable<TEntity> entities) => _entities.AddRangeAsync(entities);
+        public virtual void Remove(TEntity entity) => _entities.Remove(entity);
 
-        public virtual async Task Add(params TEntity[] entities) => await _entities.AddRangeAsync(entities);
-        public virtual async Task Add(IEnumerable<TEntity> entities) => await _entities.AddRangeAsync(entities);
+        public virtual void Remove(params TEntity[] entities) => _entities.RemoveRange(entities);
+        public virtual void Remove(IEnumerable<TEntity> entities) => _entities.RemoveRange(entities);
+        public virtual void Update(TEntity entity) => _entities.Update(entity);
+        public virtual void Update(params TEntity[] entities) => _entities.UpdateRange(entities);
+        public virtual void Update(IEnumerable<TEntity> entities) => _entities.UpdateRange(entities);
         public virtual async Task<int> CountAll() => await _entities.CountAsync();
         public virtual async Task<int> CountWhere(Expression<Func<TEntity, bool>> filter) => await _entities.CountAsync(filter);
-
         public virtual async Task<bool> Exists(Expression<Func<TEntity, bool>> filter) => await _entities.AnyAsync(filter);
 
         public virtual async Task<TEntity> Find(Expression<Func<TEntity, bool>> filter) => await _entities.SingleOrDefaultAsync(filter);
@@ -37,54 +42,7 @@ namespace MTK.DataAccess.Repository
 
         public virtual async Task<IEnumerable<TEntity>> GetWhere(Expression<Func<TEntity, bool>> filter) => await _entities.Where(filter).ToListAsync();
 
-
-        public virtual async Task Remove(TEntity entity)
-        {
-            _entities.Remove(entity);
-            await this.Commit();
-        }
-
-        public virtual async Task Remove(object id)
-        {
-            var obj = await this.GetById(id);
-            _entities.Remove(obj);
-            await Commit();
-        }
-
-
-        public virtual async Task Remove(params TEntity[] entities)
-        {
-            _entities.RemoveRange(entities);
-            await this.Commit();
-        }
-
-        public virtual async Task Remove(IEnumerable<TEntity> entities)
-        {
-            _entities.RemoveRange(entities);
-            await this.Commit();
-        }
-
-        public Task<bool> RollBack()
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual async Task Update(TEntity entity)
-        {
-            _entities.Update(entity);
-            await this.Commit();
-        }
-
-        public virtual async Task Update(params TEntity[] entities)
-        {
-            _entities.UpdateRange(entities);
-            await this.Commit();
-        }
-        public virtual async Task Update(IEnumerable<TEntity> entities)
-        {
-            _entities.UpdateRange(entities);
-            await this.Commit();
-        }
         public virtual async Task<bool> Commit() => await _context.SaveChangesAsync() > 0;
+        public Task<bool> RollBack() => throw new NotImplementedException();
     }
 }
