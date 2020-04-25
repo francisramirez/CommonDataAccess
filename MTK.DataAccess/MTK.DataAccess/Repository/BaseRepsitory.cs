@@ -10,7 +10,7 @@ namespace MTK.DataAccess.Repository
     using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
     using MTK.DataAccess.Contracts;
-    public class BaseRepsitory<TEntity> : IUnitOfWork  ,IRepository<TEntity> where TEntity : class
+    public class BaseRepsitory<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly DbContext _context;
 
@@ -31,7 +31,7 @@ namespace MTK.DataAccess.Repository
 
         public virtual async Task<TEntity> Find(Expression<Func<TEntity, bool>> filter) => await _entities.SingleOrDefaultAsync(filter);
 
-        public virtual async Task<IEnumerable<TEntity>> FindAll() => await _entities.ToListAsync();
+        public virtual async Task<IEnumerable<TEntity>> GetAll() => await _entities.ToListAsync();
 
         public virtual async Task<TEntity> GetById(object id) => await _entities.FindAsync(id);
 

@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq.Expressions;
     using System.Threading.Tasks;
-    public interface IRepository<TEntity> where TEntity: class
+    public interface IRepository<TEntity> : IUnitOfWork where TEntity: class
     {
         Task<TEntity> GetById(object id);
         Task<TEntity> Find(Expression<Func<TEntity, bool>> filter);
@@ -18,7 +18,7 @@
         Task Remove(object id);
         Task Remove(params TEntity[] entities);
         Task Remove(IEnumerable<TEntity> entities);
-        Task<IEnumerable<TEntity>> FindAll();
+        Task<IEnumerable<TEntity>> GetAll();
         Task<IEnumerable<TEntity>> GetWhere(Expression<Func<TEntity, bool>> filter);
         Task<int> CountAll();
         Task<int> CountWhere(Expression<Func<TEntity, bool>> filter);

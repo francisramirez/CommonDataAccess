@@ -6,3 +6,4 @@ D:\Projects\CommonDataAccess\CommonDataAccess\MTK.DataAccess\MTK.DataAccess\obj\
 D:\Projects\CommonDataAccess\CommonDataAccess\MTK.DataAccess\MTK.DataAccess\obj\Debug\netstandard2.0\MTK.DataAccess.AssemblyInfo.cs
 D:\Projects\CommonDataAccess\CommonDataAccess\MTK.DataAccess\MTK.DataAccess\obj\Debug\netstandard2.0\MTK.DataAccess.dll
 D:\Projects\CommonDataAccess\CommonDataAccess\MTK.DataAccess\MTK.DataAccess\obj\Debug\netstandard2.0\MTK.DataAccess.pdb
+D:\Projects\CommonDataAccess\CommonDataAccess\MTK.DataAccess\MTK.DataAccess\obj\Debug\netstandard2.0\MTK.DataAccess.csprojAssemblyReference.cache
