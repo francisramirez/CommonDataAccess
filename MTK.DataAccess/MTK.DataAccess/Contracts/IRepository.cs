@@ -8,15 +8,16 @@
     {
         Task<TEntity> GetById(object id);
         Task<TEntity> Find(Expression<Func<TEntity, bool>> filter);
-        void Add(TEntity entity);
-        void Add(params TEntity[] entities);
-        void Add(IEnumerable<TEntity> entities);
-        void Update(TEntity entity);
-        void Update(params TEntity[] entities);
-        void Update(IEnumerable<TEntity> entities);
-        void Remove(TEntity entity);
-        void Remove(params TEntity[] entities);
-        void Remove(IEnumerable<TEntity> entities);
+        Task Add(TEntity entity);
+        Task Add(params TEntity[] entities);
+        Task Add(IEnumerable<TEntity> entities);
+        Task Update(TEntity entity);
+        Task Update(params TEntity[] entities);
+        Task Update(IEnumerable<TEntity> entities);
+        Task Remove(TEntity entity);
+        Task Remove(object id);
+        Task Remove(params TEntity[] entities);
+        Task Remove(IEnumerable<TEntity> entities);
         Task<IEnumerable<TEntity>> GetAll();
         Task<IEnumerable<TEntity>> GetWhere(Expression<Func<TEntity, bool>> filter);
         Task<int> CountAll();
